@@ -1,0 +1,394 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*---------- 全域設定 ----------*/
+.wrap{
+    margin: 0 auto;
+    max-width: 1024px;
+    font-family: Arial;
+}
+
+/*---------- 上方資料輸入區 ----------*/
+.header{
+    height: 300px;
+    background: #424242;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 214px;
+    position: relative;
+}
+/* 身高體重input */
+.text{
+    color: #FFD366;
+    font-size: 18px;
+    margin-left: 80px;
+    margin-right: 50px;
+}
+.text input{
+    font-size: 24px;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.18);
+    border: 2px solid #FFD366;
+    border-radius: 10px;
+    width: 250px;
+    height: 40px;
+    margin-top: 3px;
+    margin-bottom: 20px;
+}
+::placeholder{
+    color: rgba(255,255,255,0.5);
+}
+/* btn原先樣式 */
+.result-btn{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    background: #FFD366;
+    font-size: 24px;
+    font-weight: bold;
+    color: #424242;
+}
+.result-btn:hover{
+    background: #FFD366;
+    box-shadow: 0 1px 6px 3px rgba(255,195,49,0.64);
+}
+.result-btn:active{
+    background: #DEA921;
+}
+/* 輸入後btn狀態 */
+.status{
+    height: 108px;
+    width: 108px;
+    border-radius: 50%;
+    border: 6px solid #FF1200;
+    margin: 15px;
+    text-align: center;
+    position: relative;
+}
+.bmi-nb{
+    font-size: 32px;
+    margin: 27px 0 7px 0;
+}
+.refresh{
+    width: 30px;
+    height: 30px;
+    background-image: url(images/icons_loop.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    right: 0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.refresh:hover{
+    box-shadow: inset 0 0 10px #fff;
+}
+.status-text{
+    font-size: 32px;
+    width: 150px;
+    position: absolute;
+    right: -180px;
+    top: 40px;
+    text-align: left;
+}
+.hidebtn{
+    display: none;
+}
+/* 輸入後btn顏色 */
+/* red */
+.status-red{
+    border-color: #FF1200;
+}
+.red{
+    color: #FF1200;
+}
+.result-red{
+    background-color: #FF1200;
+}
+/* darkOrange */
+.status-darkOrange{
+    border-color: #FF6C02;
+}
+.darkOrange{
+    color: #FF6C02;
+}
+.result-darkOrange{
+    background-color: #FF6C02;
+}
+/* orange */
+.status-orange{
+    border-color: #FF982D;
+}
+.orange{
+    color: #FF982D;
+}
+.result-orange{
+    background-color: #FF982D;
+}
+/* blue */
+.status-blue{
+    border-color: #31BAF9;
+}
+.blue{
+    color: #31BAF9;
+}
+.result-blue{
+    background-color: #31BAF9;
+}
+/* green */
+.status-green{
+    border-color: #86D73E;
+}
+.green{
+    color: #86D73E;
+}
+.result-green{
+    background-color: #86D73E;
+}
+@media (max-width: 768px){
+    .header{
+        display: block;
+        padding: 0;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+    }
+    .logo{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .logo img{
+        height: 80px;
+        width: 80px;
+    }
+    .text{
+        margin-left: 0;
+        margin-right: 0;
+        display: flex;
+    }
+    .text input{
+        width: 140px;
+        margin-bottom: 10px;
+    }
+    .heightArea{
+        margin-right: 10px;
+    }
+    .weightArea{
+        margin-left: 10px;
+    }
+    .btnArea{
+        padding-bottom: 10px;
+    }
+    .status-text{
+        font-size: 24px;
+        width: 100px;
+        right: -120px;
+    }
+}
+
+
+/*---------- 中間 BMI 紀錄 ----------*/
+.content{
+    background: #f5f5f5;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2{
+    font-size: 24px;
+    color: #424242;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+.content a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #4e4747;
+    display: block;
+    margin-top: 30px;
+}
+.content a:hover{
+    color: #fcb80d;
+}
+/* li設定 */
+.bar{
+    width: 640px;
+    height: 62px;
+    background: #fff;
+    line-height: 62px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: #4A4A4A;
+    display: flex;
+    align-items: center;
+    border-left: 7px solid #FF1200;
+}
+.list div{
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 40px;
+}
+/* li左方顏色條 */
+.barColor-red{
+    border-left: 7px solid #FF1200;
+}
+.barColor-darkOrange{
+    border-left: 7px solid #FF6C02;
+}
+.barColor-orange{
+    border-left: 7px solid #FF982D;
+}
+.barColor-blue{
+    border-left: 7px solid #31BAF9;
+}
+.barColor-green{
+    border-left: 7px solid #86D73E;
+}
+/* 等級文字 */
+.listLevel{
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+    margin-left: 12px;
+    width: 110px;
+}
+/* BMI值 */
+.BMI{
+    width: 60px;
+}
+/* 體重值 */
+.weight{
+    width: 60px;
+}
+/* 身高值 */
+.height{
+    width: 60px;
+}
+/* 日期 */
+.list li .time{
+    font-size: 12px;
+}
+
+@media (max-width: 768px){
+    h2{
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+    .bar{
+        width: 350px;
+        height: 140px;
+        line-height: 62px;
+        display: block;
+        position: relative;
+    }
+    .list div{
+        font-size: 20px;
+        padding-left: 5px;
+        padding-right: 40px;
+    }
+    .listLevel{
+        position: absolute;
+        top: 40px;
+    }
+    .BMI1{
+        position: absolute;
+        top: -5px;
+        left: 140px;
+    }
+    .BMI{
+        position: absolute;
+        top: 20px;
+        left: 135px;
+    }
+    .weight1{
+        position: absolute;
+        top: -5px;
+        left: 240px;
+    }
+    .weight{
+        position: absolute;
+        top: 20px;
+        left: 235px;
+    }
+    .height1{
+        position: absolute;
+        top: 55px;
+        left: 140px;
+    }
+    .height{
+        position: absolute;
+        top: 80px;
+        left: 135px;
+    }
+    .time{
+        position: absolute;
+        top: 80px;
+        left: 235px;
+    }
+}
+
+
+
+/*---------- 表尾 ----------*/
+.footer{
+    background: #FFD366;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer img{
+    height: 55px;
+    width: 55px;
+}
